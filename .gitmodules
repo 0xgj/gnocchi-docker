@@ -1,0 +1,6 @@
+[submodule "gnocchi/gnocchi/gnocchi"]
+	path = gnocchi/gnocchi/gnocchi
+	url = https://github.com/openstack/gnocchi
+[submodule "gnocchi/gnocchiclient"]
+	path = gnocchi/gnocchiclient
+	url = https://github.com/openstack/python-gnocchiclient

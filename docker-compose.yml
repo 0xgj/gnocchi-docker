@@ -1,0 +1,34 @@
+indexer:
+  image: mysql:5.5.44
+  environment:
+    - MYSQL_ROOT_PASSWORD=123456
+  ports:
+    - 3306:3306
+  volumes:
+    - ./data/mysql:/var/lib/mysql
+
+storage:
+  image: bcec/influxdb:v0.1 
+  ports:
+    - 8083:8083
+    - 8086:8086
+
+coordinator:
+  image: jplock/zookeeper
+  ports:
+    - 2181:2181
+    - 2888:2888
+    - 3888:3888
+
+gnocchi-api:
+  image: bcec/gnocchi:v0.1
+  ports:
+    - 8041:8041
+  env_file:
+    - ./common.env
+
+gnocchi-metric:
+  image: bcec/gnocchi:v0.1
+  env_file:
+    - ./common.env
+  command: gnocchi-metricd

@@ -1,0 +1,4 @@
+[gerrit]
+host=gerrit.dev
+port=29418
+project=bcec/gnocchi-docker
